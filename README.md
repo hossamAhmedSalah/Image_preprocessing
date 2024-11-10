@@ -285,3 +285,62 @@ $$
 
 ![alt text](image-3.png)
 
+# Spatial Frequency Filtering
+
+- Images are 2D functions $f(x,y)$ in spatial coordinates $(x,y)$ in an image plane.
+-  Each function describes how colous or gray values (intensities, or brightness) vary in space.
+-  An alternative image representation is based on spatial frequencies of gray value or color variations over the image plane.
+-  spatial frequency is a characteristic of any structure that is periodic across position in space. 
+-  The spatial frequency is a measure of how often sinusoidal components (as determined by the Fourier transform) of the structure repeat per unit of distance.
+
+## Filters
+
+- High-pass filters pass high frequencies and stop low frequencies. 
+  - Amplify or pass frequent changes in gray levels.
+  - Enhance the edge.
+- Low-pass filters stop high frequencies and pass low frequencies.
+  - Reduce frequent changes in gray levels.    
+  - Remove the edge (gradual slope between the two levels).
+- Applications 
+  - noise removal, smoothing, and edge enhancement.
+  - Low-pass filter remove the noise:   
+    - Snow 
+    - Spikes
+  - Multiplication in the frequency domain corresponds to convolution in the time and the spatial domain.
+  - Using a small convolution is much faster than performing Fourier and multiplication.
+
+## Low-Pass filters
+- Convolovin an image with constant gay level using low-pass filters, won't change the image.
+  - No high spatial frequencies. 
+- Median filter 
+  - Special type of low-pass filters.
+  - Take `n×n` area of pixels and replace the center with the median.
+  - Doesn't require convolution actually it's non-linear filter.
+  - It require sorting the pixels.
+  - Easy to change the filter size.
+  - Median filters remove noise.
+  - Beyond 5*5, slows down.
+## High-pass filters
+- sharpen thee edges.
+
+| Aspect               | Low-Pass Filter                           | High-Pass Filter                             |
+|----------------------|-------------------------------------------|----------------------------------------------|
+| **Frequency Target** | Allows low frequencies                    | Allows high frequencies                      |
+| **Effect on Image**  | Smoothing and blurring                    | Sharpening and edge enhancement              |
+| **Detail Level**     | Reduces fine details                      | Enhances fine details                        |
+| **Applications**     | Noise reduction, anti-aliasing            | Edge detection, feature extraction           |
+| **Common Examples**  | Gaussian blur, Mean filter, Box filter    | Sobel filter, Laplacian filter, High-pass kernel |
+| **Resulting Visual** | Smooth, less detailed image               | Sharper, more detailed image                 |
+
+<br>
+
+| Aspect               | Linear Filters                                      | Non-Linear Filters                               |
+|----------------------|-----------------------------------------------------|--------------------------------------------------|
+| **Definition**       | Apply a linear transformation to pixel values       | Apply a non-linear transformation to pixel values |
+| **Operation Type**   | Weighted sum of neighboring pixels                  | Non-linear functions (e.g., median, max) on pixel neighborhood |
+| **Effect on Image**  | Smooth, blur, or sharpen image                      | Reduce noise, preserve edges                     |
+| **Preservation of Details** | Often blurs edges                           | Better edge preservation                         |
+| **Common Examples**  | Gaussian blur, Mean filter, Laplacian filter        | Median filter, Bilateral filter                  |
+| **Applications**     | Smoothing, sharpening, edge detection               | Noise reduction, edge preservation               |
+| **Computational Complexity** | Generally lower                            | Can be computationally more intensive            |
+| **Response to Outliers** | Sensitive to noise and outliers                | Robust against noise and outliers                |
