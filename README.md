@@ -344,3 +344,21 @@ $$
 | **Applications**     | Smoothing, sharpening, edge detection               | Noise reduction, edge preservation               |
 | **Computational Complexity** | Generally lower                            | Can be computationally more intensive            |
 | **Response to Outliers** | Sensitive to noise and outliers                | Robust against noise and outliers                |
+
+# Image operations
+
+- Introduces several basic image operations.
+  - adding, subtracting, cutting and pasting parts of images.
+- Addition and Subtraction
+  - pixels are added.
+  - If the sum is greater than the maximum pixel value
+    - the new pixel would be the maximum value, if it below the 0 it would be zero.
+- Image addition and subtraction can place objects into and remove objects from images.
+- Cut and Paste 
+  - They allow cutting rectangular areas from one image and pasting them into another. 
+- Image Scaling
+- Blank Images
+- Inverting Images
+  - Inverts the pixels by subtracting them from the number of gray shades. 
+    - (0 becomes 255, 1 becomes 254, etc.)
+  
